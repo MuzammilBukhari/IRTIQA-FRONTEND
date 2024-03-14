@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.GenerateActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        >
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorPrimaryDark"
+            android:elevation="0dp"
+            app:navigationIcon="@drawable/baseline_arrow_back_24"
+            app:titleTextColor="@color/black"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_below="@id/appbar"
+        android:layout_above="@+id/btnLayout"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/squareLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ProgressBar
+                android:id="@+id/progressBar1"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="150dp"
+                android:progressTint="@android:color/white"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:layout_margin="20dp"
+                android:indeterminateTint="@color/colorPrimary"
+                android:indeterminate="true"/>
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/generateCardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardCornerRadius="12dp"
+                android:layout_margin="10dp"
+                app:cardElevation="0dp">
+
+                <RelativeLayout
+                    android:id="@+id/loadingView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/edit_text_background">
+
+                    <com.github.ybq.android.spinkit.SpinKitView
+                        xmlns:app="http://schemas.android.com/apk/res-auto"
+                        android:id="@+id/spin_kit"
+                        style="@style/SpinKitView.Small.Circle"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_gravity="center"
+                        android:layout_centerInParent="true"
+                        app:SpinKit_Color="@color/colorAccent" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/spin_kit"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:gravity="center"
+                        android:text="Generating..."
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:fontFamily="@font/regular" />
+
+                </RelativeLayout>
+
+            </androidx.cardview.widget.CardView>
+
+
+
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/generatedImage"
+                    android:visibility="gone"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    app:riv_corner_radius="8dp"
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content"
+                    />
+
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_below="@id/squareLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:cardElevation="2dp"-->
+<!--            android:layout_margin="10dp"-->
+<!--            app:cardCornerRadius="10dp">-->
+
+<!--            <RelativeLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:background="@drawable/rounder_corner_border"-->
+<!--                android:padding="4dp"-->
+<!--                android:layout_height="wrap_content">-->
+
+<!--                <com.ymg.ads.sdk.ui.SmallNativeAdView-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:padding="1dp"-->
+<!--                    android:layout_height="wrap_content" />-->
+
+<!--            </RelativeLayout>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+
+    </RelativeLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/btnLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/bannerAdView"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnRegenerate"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounder_corner"
+                    android:backgroundTint="#DED7FF"
+                    android:text="Re-Generate"
+                    android:textAllCaps="false"
+                    app:fontFamily="@font/regular"
+                    app:elevation="0dp"
+                    android:elevation="0dp"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="16dp" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnDownload"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_margin="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rounder_corner"
+                    android:text="Download"
+                    android:elevation="0dp"
+                    app:fontFamily="@font/regular"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="16dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    <com.ymg.ads.sdk.ui.BannerAdView
+        android:id="@+id/bannerAdView"
+        android:layout_width="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

@@ -1,0 +1,66 @@
+[
+  {
+    "name": "No Style",
+    "imageUrl": "https://images.news18.com/ibnlive/uploads/2023/04/ai-tool-creates-realistic-images-of-ramayana-characters-16805978673x2.png"
+  },
+  {
+    "name": "Realistic",
+    "imageUrl": "https://images.news18.com/ibnlive/uploads/2023/04/ai-tool-creates-realistic-images-of-ramayana-characters-16805978673x2.png"
+  },
+  {
+    "name": "Anime",
+    "imageUrl": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/9b36d81e-7b4c-452a-996e-8935670ddf59/width=450/00203-2632423303.jpeg"
+  },
+  {
+    "name": "Cinematic",
+    "imageUrl": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/f738d973-7cb9-4a17-8527-4b1a81aad400/width=3376/31275.jpeg"
+  },
+  {
+    "name": "Photographic",
+    "imageUrl": "https://imgv3.fotor.com/images/cover-photo-image/a-beautiful-girl-with-gray-hair-and-lucxy-neckless-generated-by-Fotor-AI.jpg"
+  },
+  {
+    "name": "Fantasy",
+    "imageUrl": "https://image.civitai.com/xG1nkqKTMzGDvpLrqFT7WA/57bb58ad-eb01-4c45-20d7-4351a0266400/width=1328/00387-480273850-20-8-DPM++%202M%20Karras-fantasy%20enchanted%20beautiful%20mushroom%20with%20glowing%20pastel%20colors%20and%20gold,%208k,%20trending,%20highly%20detailed%20hyper%20realistic.jpeg"
+  },
+  {
+    "name": "Cartoon",
+    "imageUrl": "https://img.freepik.com/premium-vector/drawing-woman-with-pink-jacket-pink-headphones_147933-3859.jpg?size=626&ext=jpg"
+  },
+  {
+    "name": "Cyberpunk",
+    "imageUrl": "https://cdnb.artstation.com/p/assets/images/images/061/631/991/large/maynard-someone-hotcyber9a.jpg?1681269884"
+  },
+  {
+    "name": "Manga",
+    "imageUrl": "https://t4.ftcdn.net/jpg/05/64/40/99/360_F_564409960_1FoEenlsrIaCXo5Y9WM1jT8YoKFUOlmE.jpg"
+  },
+  {
+    "name": "Digital Art",
+    "imageUrl": "https://t4.ftcdn.net/jpg/05/64/40/99/360_F_564409960_1FoEenlsrIaCXo5Y9WM1jT8YoKFUOlmE.jpg"
+  },
+  {
+    "name": "Colorful",
+    "imageUrl": "https://imgv3.fotor.com/images/gallery/a-colorful-girl-watching-the-floating-colorful-water-created-by-Fotor-ai.jpg"
+  },
+  {
+    "name": "Robot",
+    "imageUrl": "https://t4.ftcdn.net/jpg/05/64/40/99/360_F_564409960_1FoEenlsrIaCXo5Y9WM1jT8YoKFUOlmE.jpg"
+  },
+  {
+    "name": "Neonpunk",
+    "imageUrl": "https://images.nightcafe.studio/jobs/HDDgiIN3XjO2GYbI92OM/HDDgiIN3XjO2GYbI92OM--1--f0ao3_4x.jpg?tr=w-1600,c-at_max"
+  },
+  {
+    "name": "Pixel Art",
+    "imageUrl": "https://img.freepik.com/premium-vector/drawing-woman-with-pink-jacket-pink-headphones_147933-3859.jpg?size=626&ext=jpg"
+  },
+  {
+    "name": "Disney",
+    "imageUrl": "https://prompthero.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsxTlRWbU1tSmpOaTFtTXpSakxUUTFOR1V0T1dZeE5DMDNPVEF5T0dNNFkyVmlOamNHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--3312f9431ceabf06977110e0a3456c653b4b9b7d/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBPZ2wzWldKd09oUnlaWE5wZW1WZmRHOWZiR2x0YVhSYkIya0NBQWd3T2dwellYWmxjbnNKT2hOemRXSnpZVzF3YkdWZmJXOWtaVWtpQjI5dUJqb0dSVlE2Q25OMGNtbHdWRG9PYVc1MFpYSnNZV05sVkRvTWNYVmhiR2wwZVdsZiIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--935666d13f63ed5aca9daa2416340e3a90b6014e/prompthero-prompt-bdb4af8f13f.jpeg"
+  },
+  {
+    "name": "3D Model",
+    "imageUrl": "https://prompthero.com/rails/active_storage/representations/proxy/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaEpJaWsxTlRWbU1tSmpOaTFtTXpSakxUUTFOR1V0T1dZeE5DMDNPVEF5T0dNNFkyVmlOamNHT2daRlZBPT0iLCJleHAiOm51bGwsInB1ciI6ImJsb2JfaWQifX0=--3312f9431ceabf06977110e0a3456c653b4b9b7d/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDRG9MWm05eWJXRjBPZ2wzWldKd09oUnlaWE5wZW1WZmRHOWZiR2x0YVhSYkIya0NBQWd3T2dwellYWmxjbnNKT2hOemRXSnpZVzF3YkdWZmJXOWtaVWtpQjI5dUJqb0dSVlE2Q25OMGNtbHdWRG9PYVc1MFpYSnNZV05sVkRvTWNYVmhiR2wwZVdsZiIsImV4cCI6bnVsbCwicHVyIjoidmFyaWF0aW9uIn19--935666d13f63ed5aca9daa2416340e3a90b6014e/prompthero-prompt-bdb4af8f13f.jpeg"
+  }
+]

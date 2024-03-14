@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+    <group android:id="@+id/menu1" android:checkableBehavior="single">
+        <item android:icon="@drawable/ic_crown_24" android:visible="true" android:id="@+id/nav_premium"
+            android:title="Premium AI"/>
+    </group>
+    <group android:checkableBehavior="single">
+
+        <item android:icon="@drawable/ic_menu_save" android:visible="true" android:id="@+id/nav_galler"
+            android:title="AI Gallery"/>
+        <item android:icon="@drawable/envelope_24" android:id="@+id/nav_contact" android:title="@string/menu_contact"/>
+        <item android:icon="@drawable/instagram_24" android:id="@+id/nav_insta" android:title="Instagram"/>
+        <item android:icon="@drawable/info_24" android:id="@+id/nav_about" android:title="@string/menu_about"/>
+        <item android:icon="@drawable/settings_24" android:id="@+id/nav_settings" android:title="@string/menu_settings"/>
+        <item android:icon="@drawable/star_24" android:id="@+id/nav_rate" android:title="@string/menu_rate"/>
+        <item android:icon="@drawable/share_24" android:id="@+id/nav_share" android:title="@string/menu_share"/>
+    </group>
+</menu>

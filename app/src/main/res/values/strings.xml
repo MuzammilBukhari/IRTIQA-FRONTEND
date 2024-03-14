@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">IRTIQA-AI</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_settings">Settings</string>
+    <string name="menu_about">About us</string>
+    <string name="menu_contact">Contact us</string>
+    <string name="menu_share">Share App</string>
+    <string name="menu_rate">Give Star</string>
+
+
+    <string name="app_description">Image Generator lets users generate Ai Art Images with tons of styles and presets</string>
+    <string name="app_description_splash">Video Generator Ai Art with tons of styles</string>
+    <string name="developers_name">IRTIQA-DEVS</string>
+
+    <string name="policy_privacy">Privacy Policy</string>
+    <string name="storage">Images Save Location</string>
+    <string name="storagelocation">Internal Storage/</string>
+    <string name="title_notification">Push Notification</string>
+    <string name="label_notification">Want New Feature Notifications from </string>
+    <string name="description_subsribte">With our App , You can Enjoy ad free experiance and focus on the essential</string>
+    <string name="version_label">Version</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="label_cache">Delete and Clear the Caches</string>
+    <string name="msg_cache_cleared">Cache Cleared !</string>
+
+
+    <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
+    <string name="applovin_sdk_key">opMTCPy_RyUrTNUMNwg8JTVkDu6DHPWZDAzsytAyZS09yOFNo4bAO64beUA8vEpy0nulzEWdAZkA6ZxK49SxLz</string>
+    <string name="irtiqa">IRTIQA-APPS</string>
+</resources>

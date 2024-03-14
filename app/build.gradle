@@ -1,0 +1,71 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.gdevs.imagegeneratorai'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.gdevs.imagegeneratorai"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility "1.8"
+        targetCompatibility "1.8"
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.11.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    testImplementation 'junit:junit:4.13.2'
+    implementation 'com.github.iamyashchouhan:ymg-developers-ads-networks-sdk:1.0.0'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation 'com.github.iamyashchouhan:androidcipher:0.1.1'
+    implementation (platform("org.jetbrains.kotlin:kotlin-bom:1.8.0"))
+
+    //oneSignal
+    implementation 'com.onesignal:OneSignal:5.1.6'
+
+    implementation 'com.android.volley:volley:1.2.1'
+    implementation 'com.github.bumptech.glide:glide:4.13.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.13.1'
+
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.github.ybq:Android-SpinKit:1.4.0'
+    implementation 'commons-io:commons-io:20030203.000550'
+    implementation 'com.airbnb.android:lottie:6.4.0'
+
+    implementation 'androidx.lifecycle:lifecycle-process:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime:2.7.0'
+    implementation 'androidx.lifecycle:lifecycle-common-java8:2.7.0'
+    implementation 'androidx.multidex:multidex:2.0.1'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+
+    implementation 'com.android.billingclient:billing:6.2.0'
+    implementation 'com.google.firebase:firebase-crashlytics-buildtools:2.9.9'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+
+
+
+
+}
