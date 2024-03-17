@@ -1,8 +1,15 @@
 package com.gdevs.imagegeneratorai.Activity;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
+
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.media.MediaPlayer;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +41,7 @@ import android.view.Window;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.android.volley.VolleyError;
 import com.bumptech.glide.Glide;
@@ -55,6 +63,7 @@ import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLEncoder;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,6 +72,11 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.UUID;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.squareup.picasso.Picasso;
+
 
 public class GenerateActivity extends AppCompatActivity {
 
@@ -81,8 +95,11 @@ public class GenerateActivity extends AppCompatActivity {
     int width = 1024;
     int height = 700;
     String extraPrompt;
+    private TextView responseText;
 
     CardView generateCardView;
+    private VideoView generatedVideo;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -116,25 +133,44 @@ public class GenerateActivity extends AppCompatActivity {
         generatedImage = findViewById(R.id.generatedImage);
         btnDownload = findViewById(R.id.btnDownload);
         btnRegenerate = findViewById(R.id.btnRegenerate);
+        generatedVideo = findViewById(R.id.generatedVideo);
 
-        //imageCardView = findViewById(R.id.imageCardView);
-        generateCardView = findViewById(R.id.generateCardView);
+        String apiUrl;
+        try {
+            apiUrl = "http://127.0.0.1:8000/search/videos?query=" + URLEncoder.encode(prompt, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
         btnRegenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 generateCardView.setVisibility(View.VISIBLE);
                 loadingView.setVisibility(View.VISIBLE);
-                generatedImage.setVisibility(View.GONE);
-                //imageCardView.setVisibility(View.GONE);
-
-                getGeneratedStart();
-                showInterstitialAd();
+                generatedVideo.setVisibility(View.GONE);
             }
         });
 
-        getGeneratedStart();
+        generateCardView = findViewById(R.id.generateCardView);
+
+
+        btnRegenerate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                generateCardView.setVisibility(View.VISIBLE);
+                loadingView.setVisibility(View.VISIBLE);
+                generatedVideo.setVisibility(View.GONE);
+                new FetchVideoUrlTask(GenerateActivity.this).execute(generateGet);
+                //imageCardView.setVisibility(View.GONE);
+
+//                getGeneratedStart();
+//                showInterstitialAd();
+            }
+        });
+
+//        getGeneratedStart();
     }
+
 
     private void getGeneratedStart() {
         isBtnEnabled(false);
@@ -206,10 +242,8 @@ public class GenerateActivity extends AppCompatActivity {
             height = 1024;
         }
 
-        generateGet = URL1 + "/search/images?query=" + prompt;
+        generateGet = URL1 + "/search/videos?query=" + prompt + "&per_page=1";
 
-
-       String result = getGeneratedImage(generateGet.replace(" ", "%20"));
 
     }
 
@@ -228,39 +262,6 @@ public class GenerateActivity extends AppCompatActivity {
 
     }
 
-    private String getGeneratedImage(String prompt) {
-        Thread thread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    URL url = new URL(prompt);
-
-                    HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-                    connection.setRequestMethod("GET");
-                    connection.setConnectTimeout(10000); // 10 seconds
-                    connection.setReadTimeout(10000);
-                    connection.connect();
-
-                    BufferedReader bufferedReader = new BufferedReader(
-                            new InputStreamReader(connection.getInputStream()));
-                    final StringBuilder stringBuilder = new StringBuilder();
-                    String line;
-                    while ((line = bufferedReader.readLine()) != null) {
-                        stringBuilder.append(line);
-                    }
-                    bufferedReader.close();
-                    String result = stringBuilder.toString();
-                    return result;
-
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
-        return prompt;
-    }
 
 
 
@@ -307,21 +308,21 @@ public class GenerateActivity extends AppCompatActivity {
         });
     }
 
-    private void showArtWork(String imageUrl) {
+    private void showArtWork(String videoUrl) {
         isBtnEnabled(true);
         loadingView.setVisibility(View.GONE);
         generateCardView.setVisibility(View.GONE);
-        generatedImage.setVisibility(View.VISIBLE);
-        final String url = imageUrl.replace(AndroidCipher.getCipher("Fzqn6Ddu857RHPX/71A9Mw==:ZmVkY2JhOTg3NjU0MzIxMA=="), AndroidCipher.getCipher("Zlvrfxx/Tr6CEPkKTsfT6A==:ZmVkY2JhOTg3NjU0MzIxMA=="));
+        generatedVideo.setVisibility(View.VISIBLE);
+//        final String url = imageUrl.replace(AndroidCipher.getCipher("Fzqn6Ddu857RHPX/71A9Mw==:ZmVkY2JhOTg3NjU0MzIxMA=="), AndroidCipher.getCipher("Zlvrfxx/Tr6CEPkKTsfT6A==:ZmVkY2JhOTg3NjU0MzIxMA=="));
         Glide.with(this)
-                .load(url)
+                .load(videoUrl)
                 .into(generatedImage);
         btnDownload.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Glide.with(GenerateActivity.this)
                         .asBitmap()
-                        .load(url)
+                        .load(videoUrl)
                         .into(new SimpleTarget<Bitmap>() {
                             @Override
                             public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
@@ -341,6 +342,8 @@ public class GenerateActivity extends AppCompatActivity {
             return letter;
         }
     }
+
+
 
     private void saveBitmap(Bitmap bitmap) {
 
@@ -446,8 +449,143 @@ public class GenerateActivity extends AppCompatActivity {
         }
     }
 
+    private class FetchVideoUrlTask extends AsyncTask<String, Void, String> {
+        private Context mContext;
 
+        public FetchVideoUrlTask(Context context) {
+            mContext = context;
+        }
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = ProgressDialog.show(mContext, "", "Loading Video...", true);
+        }
+
+
+        @Override
+        protected String doInBackground(String... urls) {
+            String apiUrl = urls[0];
+            try {
+                URL url = new URL(apiUrl);
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestMethod("GET");
+
+                InputStream inputStream = connection.getInputStream();
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+                StringBuilder response = new StringBuilder();
+                String line;
+                while ((line = bufferedReader.readLine()) != null) {
+                    response.append(line);
+                }
+                bufferedReader.close();
+                return response.toString();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String videoUrl) {
+            try {
+                if (videoUrl != null) {
+                    JSONObject jsonVideoUrl = new JSONObject();
+                    jsonVideoUrl.put("videoUrl", videoUrl);
+                    onVideoUrlFetched(jsonVideoUrl.toString());
+                    playVideo(videoUrl);
+                }
+            } catch (Exception f) {
+                Log.e("FetchVideoUrlTask", "Error " + f.getMessage());
+            }
+            progressDialog.dismiss();
+        }
+
+        private void onVideoUrlFetched(String jsonVideoUrl) {
+            try {
+                JSONObject jsonObject = new JSONObject(jsonVideoUrl);
+                String videoUrl = jsonObject.getString("videoUrl");
+                generatedVideo.setVideoURI(Uri.parse(videoUrl));
+                generatedVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mediaPlayer) {
+                        progressDialog.dismiss();
+                        generatedVideo.start();
+                    }
+                });
+                generatedVideo.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mediaPlayer) {
+                    }
+                });
+                generatedVideo.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+                    @Override
+                    public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
+                        progressDialog.dismiss();
+                        Toast.makeText(GenerateActivity.this, "Failed to load video", Toast.LENGTH_SHORT).show();
+                        return false;
+                    }
+                });
+
+                generatedVideo.setVisibility(View.VISIBLE);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+            }
+
+
+
+        private void playVideo(String videoUrl) {
+            progressDialog = ProgressDialog.show(this, "", "Loading Video...", true);
+
+            Uri uri = Uri.parse(videoUrl);
+            generatedVideo.setVideoURI(uri);
+
+            generatedVideo.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+                public void onPrepared(MediaPlayer mediaPlayer) {
+                progressDialog.dismiss();
+                generatedVideo.start();
+            }
+            });
+            generatedVideo.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mediaPlayer) {
+                }
+            });
+            generatedVideo.setOnErrorListener(new MediaPlayer.OnErrorListener() {
+                @Override
+                public boolean onError(MediaPlayer mediaPlayer, int i, int i1) {
+                    progressDialog.dismiss();
+                    Toast.makeText(GenerateActivity.this, "Failed to load video", Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+            });
+            generatedVideo.setVisibility(View.VISIBLE);
+        }
+
+
+
+
+
+
+
+    private String performGetRequest(String urlString) throws IOException {
+        URL url = new URL(urlString);
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        try {
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
+            StringBuilder stringBuilder = new StringBuilder();
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+            bufferedReader.close();
+            return stringBuilder.toString();
+        } finally {
+            urlConnection.disconnect();
+        }
+    }
 }
-
-
 
