@@ -35,4 +35,7 @@
     <string name="admob_app_id">ca-app-pub-3940256099942544~3347511713</string>
     <string name="applovin_sdk_key">opMTCPy_RyUrTNUMNwg8JTVkDu6DHPWZDAzsytAyZS09yOFNo4bAO64beUA8vEpy0nulzEWdAZkA6ZxK49SxLz</string>
     <string name="irtiqa">IRTIQA-APPS</string>
+    <string name="pro">PRO</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

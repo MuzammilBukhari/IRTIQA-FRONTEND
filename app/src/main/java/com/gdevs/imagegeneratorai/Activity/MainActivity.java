@@ -1,6 +1,7 @@
 package com.gdevs.imagegeneratorai.Activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
@@ -49,7 +50,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity<NavController> extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
     DrawerLayout drawerLayout;
     Toolbar toolbar;
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private RatioAdapter ratioAdapter;
     private List<RatioModel> ratioList;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

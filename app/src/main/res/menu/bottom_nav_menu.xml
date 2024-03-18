@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/destination1"
+        android:title="Home"
+        android:icon="@drawable/ic_baseline_home_24"
+        />
+    <item
+        android:id="@+id/destination2"
+        android:title="Library"
+        android:icon="@drawable/ic_baseline_video_library_24"
+        />
+    <item
+        android:id="@+id/destination3"
+        android:title="Upload"
+        android:icon="@drawable/ic_baseline_add_24"
+        />
+    <item
+        android:id="@+id/destination4"
+        android:title="History"
+        android:icon="@drawable/ic_baseline_history_24"
+        />
+    <item
+        android:id="@+id/destination5"
+        android:title="Profile"
+        android:icon="@drawable/ic_baseline_person_24"
+        />
+</menu>
